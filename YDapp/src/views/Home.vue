@@ -157,6 +157,24 @@
             </div>
         </div>
         <div class="yinying"></div>
+        <div class="foot">
+            <span class="title">为什么选择我们</span>
+            <div class="body">
+                <div  class="item">
+                    <img  src="../assets/index/advantage_1.png" alt="">
+                    <p>获评鲜花龙头企业</p>
+                </div>
+                <div  class="item">
+                    <img  src="../assets/index/advantage_2.png" alt="">
+                    <p>1-3小时送花上门</p>
+                </div>
+                <div  class="item">
+                    <img  src="../assets/index/advantage_3.png" alt="">
+                    <p>赛事冠军花艺师团队</p>
+                </div>
+            </div>
+        </div>
+
         <div style="margin-bottom:54px"></div>
             <!-- <img class="logo" src="../assets/index/pc_hualogo.png" alt=""> -->
         <tabbar :active="active"></tabbar>
@@ -379,6 +397,41 @@ export default {
     border:1px solid #000;
     border-radius: 2px;
     background-color: #fff;
+}
+.tuangou{
+    width: 100%;
+    height: 300px;
+}
+.foot{
+    margin-bottom: 80px;
+}
+.foot>.title{
+    display: inline-block;
+    width: 200px;
+    font-size: 24px;
+    text-align: center;
+    margin: 20px 0;
+}
+.foot>.body{
+    width: 100%;
+    /* height: 20px; */
+    display: flex ;
+    justify-content: space-around;
+    
+}
+.foot .body .item{
+    width: 33.333%;
+    
+}
+.foot>.body>.item img{
+    width: 70px;
+    height: 70px;
+    
+    border-radius:50% ;
+}
+.foot>.body>.item p{
+    font-size: 12px;
+    font-weight: bolder;
 }
 </style>
 
