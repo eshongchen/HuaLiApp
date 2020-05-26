@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Kind from '../views/King.vue'
 import Me from '../views/Me.vue'
 import Cart from '../views/Cart.vue'
+import Register from '../views/Register.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +26,14 @@ const routes = [
   {
     path: '/me',
     component: Me
+  },
+  {
+    path: '/register',
+    component: Register
+  },
+  {
+    path: '/login',
+    component: Login
   },
   
 ]

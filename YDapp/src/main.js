@@ -21,7 +21,7 @@ Vue.use(MintUI);
 // 注册全局组件tabbar
 // Vue.component(tabbar, './components/Tabber.vue');
 
-axios.defaults.baseURL = 'http://127.0.0.1'
+axios.defaults.baseURL = 'http://127.0.0.1:4000'
 Vue.prototype.axios = axios;
 Vue.config.productionTip = false;
 

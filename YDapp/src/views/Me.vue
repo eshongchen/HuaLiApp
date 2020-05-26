@@ -4,7 +4,10 @@
             <div class="f1">
                 <div class="notLogin">
                     <p>欢迎来到花礼网</p>
-                    <button>登录/注册</button>
+                    <router-link to="/login">
+                        <button>登录/注册</button>
+                    </router-link>
+                    
                 </div>
             </div>
             <div class="card f2">
