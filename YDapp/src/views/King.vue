@@ -26,27 +26,27 @@
                         </div>
                         <div class="page-radius">
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
+                                <img  src="../assets/index/kicon3.jpg" alt="">
                                 <p>送恋人鲜花</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
+                                <img  src="../assets/index/kicon4.jpg" alt="">
                                 <p>送长辈鲜花</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
+                                <img  src="../assets/index/kicon5.jpg" alt="">
                                 <p>生日鲜花</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
+                                <img  src="../assets/index/kicon6.jpg" alt="">
                                 <p>礼盒鲜花</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
+                                <img  src="../assets/index/kicon9.jpg" alt="">
                                 <p>永生花</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
+                                <img  src="../assets/index/kicon11.jpg" alt="">
                                 <p>创意礼品</p>
                             </div>
                         </div>
@@ -60,28 +60,28 @@
                                 <p>对象</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>送恋人鲜花</p>
+                                <img  src="../assets/index/kicon4.jpg" alt="">
+                                <p>送女友</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>送长辈鲜花</p>
+                                <img  src="../assets/index/kicon11.jpg" alt="">
+                                <p>送男性</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>生日鲜花</p>
+                                <img  src="../assets/index/kicon10.jpg" alt="">
+                                <p>送长辈</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>礼盒鲜花</p>
+                                <img  src="../assets/index/kicon9.jpg" alt="">
+                                <p>送朋友</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>永生花</p>
+                                <img  src="../assets/index/kicon8.jpg" alt="">
+                                <p>送情人</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>创意礼品</p>
+                                <img  src="../assets/index/kicon6.jpg" alt="">
+                                <p>送亲人</p>
                             </div>
                         </div>
                         <div class="page-radius">
@@ -89,28 +89,28 @@
                                 <p>场合</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>送恋人鲜花</p>
+                                <img  src="../assets/index/kicon11.jpg" alt="">
+                                <p>爱情</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>送长辈鲜花</p>
+                                <img  src="../assets/index/kicon3.jpg" alt="">
+                                <p>生日</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>生日鲜花</p>
+                                <img  src="../assets/index/kicon4.jpg" alt="">
+                                <p>探望</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>礼盒鲜花</p>
+                                <img  src="../assets/index/kicon5.jpg" alt="">
+                                <p>商务</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>永生花</p>
+                                <img  src="../assets/index/kicon6.jpg" alt="">
+                                <p>祝贺</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>创意礼品</p>
+                                <img  src="../assets/index/kicon8.jpg" alt="">
+                                <p>婚庆</p>
                             </div>
                         </div>
                     </mt-tab-container-item>
@@ -123,59 +123,31 @@
                                 <p>对象</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>送恋人鲜花</p>
+                                <img  src="../assets/index/kicon4.jpg" alt="">
+                                <p>送女友</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>送长辈鲜花</p>
+                                <img  src="../assets/index/kicon11.jpg" alt="">
+                                <p>送男性</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>生日鲜花</p>
+                                <img  src="../assets/index/kicon10.jpg" alt="">
+                                <p>送长辈</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>礼盒鲜花</p>
+                                <img  src="../assets/index/kicon9.jpg" alt="">
+                                <p>送朋友</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>永生花</p>
+                                <img  src="../assets/index/kicon8.jpg" alt="">
+                                <p>送情人</p>
                             </div>
                             <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>创意礼品</p>
+                                <img  src="../assets/index/kicon6.jpg" alt="">
+                                <p>送亲人</p>
                             </div>
                         </div>
-                        <div class="page-radius">
-                            <div class="text">
-                                <p>分类</p>
-                            </div>
-                            <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>送恋人鲜花</p>
-                            </div>
-                            <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>送长辈鲜花</p>
-                            </div>
-                            <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>生日鲜花</p>
-                            </div>
-                            <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>礼盒鲜花</p>
-                            </div>
-                            <div  class="item">
-                                <img  src="../assets/index/test1.jpg" alt="">
-                                <p>永生花</p>
-                            </div>
-                            <div  class="item">
-                                <img  src="../assets/index/text2.jpg" alt="">
-                                <p>创意礼品</p>
-                            </div>
-                        </div>
+                        
                     </mt-tab-container-item>
                     <mt-tab-container-item id="4">
                         <div>4</div>

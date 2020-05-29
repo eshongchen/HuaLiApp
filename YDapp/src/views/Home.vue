@@ -35,19 +35,17 @@
             </div>
             <div>
                 <div class="box520-body">
-                    <div class="box520-body-item">
+                    <div class="box520-body-item" @click="Tdetails(item.Fid)" v-for="(item,index) of data520" :key="index">
                         <div class="box520-body-left">
                             <div>经典爆款</div>
                             <div>年销售冠军</div>
-                            <div>￥304</div>
+                            <div>￥{{item.Price}}</div>
                         </div>
                         <div class="box520-body-right">
-                            <img width="100%" src="../assets/index/test1.jpg" alt="">
+                            <img width="100%" :src="item.Imag" alt="">
                         </div>
                     </div>
-                    <div class="box520-body-item"></div>
-                    <div class="box520-body-item"></div>
-                    <div class="box520-body-item"></div>
+                    
                 </div>
             </div>
         </div>
@@ -56,13 +54,13 @@
         <div>
             <div class="product-title"><span>送恋人/爱情鲜花</span></div>
             <div class="product-body">
-                <div class="product-cart">
-                    <div class="product-img">
-                        <img src="../assets/index/text2.jpg" alt="">
+                <div class="product-cart" @click="Tdetails(item.Fid)" v-for="(item,index) of rose" :key="index">
+                    <div class="product-img" >
+                        <img :src="item.Imag" alt="">
                     </div>
                     <div class="product-decs">
-                        <p>一心一意</p>
-                        <p>红玫瑰11枝，粉色(或者紫色）勿忘我0.3扎，栀子叶8枝</p>
+                        <p>{{item.Cpmc}}</p>
+                        <p>{{item.Instro}}</p>
                         
                         <div class="dd">
                             <p >年销售冠军</p>
@@ -71,8 +69,8 @@
                         <p class="biaoqian">经典爆款，年销售冠军！</p>
                         <div class="bottom">
                             <div class="price">
-                                <p>￥304</p>
-                                <p>已销售12.2万件</p>
+                                <p>￥{{item.Price}}</p>
+                                <p>已销售{{item.Sales}}件</p>
                             </div>
                             <div >
                                 <img class="cart-icon" src="../assets/index/cart.png" alt="">
@@ -91,13 +89,13 @@
         <div>
             <div class="product-title"><span>送长辈鲜花</span></div>
             <div class="product-body">
-                <div class="product-cart">
+                <div class="product-cart"  @click="Tdetails(item.Fid)"  v-for="(item,index) of elder" :key="index">
                     <div class="product-img">
-                        <img src="../assets/index/text2.jpg" alt="">
+                        <img :src="item.Imag" alt="">
                     </div>
                     <div class="product-decs">
-                        <p>一心一意</p>
-                        <p>红玫瑰11枝，粉色(或者紫色）勿忘我0.3扎，栀子叶8枝</p>
+                        <p>{{item.Cpmc}}</p>
+                        <p>{{item.Instro}}</p>
                         
                         <div class="dd">
                             <p >年销售冠军</p>
@@ -106,8 +104,8 @@
                         <p class="biaoqian">经典爆款，年销售冠军！</p>
                         <div class="bottom">
                             <div class="price">
-                                <p>￥304</p>
-                                <p>已销售12.2万件</p>
+                                <p>￥{{item.Price}}</p>
+                                <p>已销售{{item.Sales}}件</p>
                             </div>
                             <div >
                                 <img class="cart-icon" src="../assets/index/cart.png" alt="">
@@ -126,13 +124,13 @@
         <div>
             <div class="product-title"><span>永生花推荐</span></div>
             <div class="product-body">
-                <div class="product-cart">
+               <div class="product-cart"  @click="Tdetails(item.Fid)" v-for="(item,index) of preserved" :key="index">
                     <div class="product-img">
-                        <img src="../assets/index/text2.jpg" alt="">
+                        <img :src="item.Imag" alt="">
                     </div>
                     <div class="product-decs">
-                        <p>一心一意</p>
-                        <p>红玫瑰11枝，粉色(或者紫色）勿忘我0.3扎，栀子叶8枝</p>
+                        <p>{{item.Cpmc}}</p>
+                        <p>{{item.Instro}}</p>
                         
                         <div class="dd">
                             <p >年销售冠军</p>
@@ -141,8 +139,8 @@
                         <p class="biaoqian">经典爆款，年销售冠军！</p>
                         <div class="bottom">
                             <div class="price">
-                                <p>￥304</p>
-                                <p>已销售12.2万件</p>
+                                <p>￥{{item.Price}}</p>
+                                <p>已销售{{item.Sales}}件</p>
                             </div>
                             <div >
                                 <img class="cart-icon" src="../assets/index/cart.png" alt="">
@@ -188,11 +186,63 @@ export default {
   },
   data() {
     return {
-      active: "home"
+      active: "home",
+      data520:[],
+      rose:[],//玫瑰数据
+      preserved:[],//永生花
+      elder:[],//长辈数据
     };
   },
+    mounted() {
+        this.axios.get('/index?kind=玫瑰').then(res=>{
+          var data=res.data.slice(0,4);
+         
+          for(var item  of data){
+            item.Imag=require(`../assets/images/img/${item.Imag}`);
+          } 
+        //   console.log(data);
+          this.data520= data;
+          console.log(this.data520);
+        });
+         //   请求首页玫瑰
+        this.axios.get('/index?kind=玫瑰').then(res=>{
+          var data=res.data.slice(0,6);
+         
+          for(var item  of data){
+            item.Imag=require(`../assets/images/img/${item.Imag}`);
+
+          } 
+        //   console.log(data);
+          this.rose= data;
+        //   console.log(this.rose);
+        });
+        //   请求首页永生花
+        this.axios.get('/index?kind=永生花').then(res=>{
+          var data=res.data.slice(0,6);
+         
+          for(var item  of data){
+            item.Imag=require(`../assets/images/img/${item.Imag}`);
+
+          } 
+        //   console.log(data);
+          this.preserved= data;
+        });
+        //   请求首页问候长辈
+        this.axios.get('/index?kind=问候长辈').then(res=>{
+          var data=res.data.slice(0,6);
+         
+          for(var item  of data){
+             item.Imag=require(`../assets/images/img/${item.Imag}`);
+          } 
+        //   console.log(data);
+          this.elder= data;
+        });
+    },
   methods: {
-    handleChange(index) {}
+      Tdetails(Fid){
+        this.$router.push('./details/'+Fid)
+      }
+    // handleChange(index) {}
   }
 };
 </script>

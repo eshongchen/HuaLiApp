@@ -6,6 +6,7 @@ import Me from '../views/Me.vue'
 import Cart from '../views/Cart.vue'
 import Register from '../views/Register.vue'
 import Login from '../views/Login.vue'
+import Details from '../views/Details.vue'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,10 @@ const routes = [
   {
     path: '/login',
     component: Login
+  },
+  {
+    path: '/details/:id',
+    component: Details
   },
   
 ]

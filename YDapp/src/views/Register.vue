@@ -11,16 +11,16 @@
         </div>
         <div class="inputBox">
             <p>手机号</p>
-            <input type="text" placeholder="请输入手机号">
+            <input type="text" placeholder="请输入手机号" v-model="uname">
             <p>验证码</p>
             <div>
-                <input type="text" placeholder="请输入验证码"><span>获取验证码</span>
+                <input type="text" placeholder="请输入验证码" v-model="code"><span @click="getCode">获取验证码</span>
             </div>
             <p>密码</p>
-            <input type="text" placeholder="请输入密码">
+            <input type="text" placeholder="请输入密码" v-model="upwd">
         </div>
         <div >
-            <mt-button class="btn" type="danger" size="normal">注册</mt-button>
+            <mt-button class="btn" type="danger" size="normal" @click="register">注册</mt-button>
         </div>
         <div class="login">
             <router-link to="/login">
@@ -29,7 +29,7 @@
         </div>
         <div class="qtlogin">
             <div class="qtlogin-item">
-                <img src="../assets/index/weixin.png" alt=""><span>微信</span>
+                <img src="../assets/index/weixin.png" alt=""><span >微信</span>
             </div>
             <div class="qtlogin-item">
                 <img src="../assets/index/QQ.png" alt=""><span>QQ</span>
@@ -43,7 +43,47 @@
         </div>
     </div>
 </template>
+<script>
+export default {
+    data(){
+        return {
+            uname:'',
+            upwd:'',
+            code:''
+        }
+    },
+    methods:{
+        register(){
+            var regExp=new RegExp(/^1[3-9]\d{9}$/) ;
+           if(!regExp.test(this.uname)){
+               this.$toast('手机号格式不正确');
+               return false;
+           }else if(this.upwd.length<6||this.upwd.length>12){
+               this.$toast('密码应为6-12位');
+           }else if(this.code!=''){
+                this.axios.post('/register?','uname='+this.uname+'&upwd='+this.upwd).then(res=>{
+                  var code=res.data.code;
+                  if(code==0){
+                    this.$toast('注册失败，因为用户名已存在!');
+                    this.uname='';
+                    this.upwd='';
+                  }else if(code==1){
+                    this.$toast('注册成功');
+                    this.uname='';
+                    this.upwd='';
+                    this.code='';
+                  }
+                });
+           }
+        }
+        ,
+        getCode(){
+            this.code=Math.floor(Math.random()*10000+1000);
+        }
+    }
 
+}
+</script>
 <style  scoped>
 .back{
     margin: 30px 20px;

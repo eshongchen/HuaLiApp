@@ -2,12 +2,15 @@
     <div >
         <div class="Use">
             <div class="f1">
-                <div class="notLogin">
+                <div v-if="!$store.state.isLogin" class="notLogin">
                     <p>欢迎来到花礼网</p>
-                    <router-link to="/login">
-                        <button>登录/注册</button>
-                    </router-link>
-                    
+                    <router-link  to="/login">
+                        <button >登录/注册</button>
+                    </router-link> 
+                </div>
+                <div v-else class="notLogined">
+                    <p>用户名:{{$store.state.uname}}</p>
+                    <button @click="loginout">注销</button>
                 </div>
             </div>
             <div class="card f2">
@@ -42,7 +45,7 @@
                         <img src="../assets/index/icon6-about.png" alt="">
                         <p>关于花礼</p>
                     </div>
-                    <div class="item">
+                    <div class="item" >
                         <img src="../assets/index/icon7-setting.png" alt="">
                         <p>设置</p>
                     </div>
@@ -56,15 +59,30 @@
 </template>
 <script>
 import tabbar from '../components/tabbar'
+import {mapMutations} from 'vuex'
 export default {
     components:{
         tabbar
     },
    data(){
        return{
-             active:'me',
+            active:'me',
+            // logined:$store.state.isLogin
        }
-   }
+   },
+   mounted(){
+    //    console.log($store.state.isLogin)
+   },
+    methods:{
+        ...mapMutations({
+             Loginout:'loginout'
+        }),
+        
+        loginout(){
+            // console.log('撒都')
+            this.Loginout();
+        }
+    }
    
 }
 </script>
@@ -155,5 +173,27 @@ export default {
         text-align: center;
         width: 25%;
     } 
+    
+    .f1 .notLogined{
+        border: 1 solid #f00;
+        width: 200px;
+        height: 100px;
+        top: 20%;
+        left: 50%;
+        margin-left: -100px;
+        position: absolute;
+    }
+    .f1 .notLogined button{
+        outline: 0;
+        background-color:red;
+        font-size: 18px;
+        font-weight: bolder;
+        width: 150px;
+        height: 50px;
+        margin-top: 20px;
+        border-radius: 25px;
+        color: #fff;
+    }
+    
 </style>
 

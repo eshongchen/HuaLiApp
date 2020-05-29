@@ -40,6 +40,8 @@
     </div>
 </template>
 <script>
+import {mapMutations} from 'vuex';
+import { Toast } from 'mint-ui';
 export default {
     data(){
         return{
@@ -48,6 +50,9 @@ export default {
         }
     },
     methods:{
+        ...mapMutations({
+            Logined:'logined'
+        }),
         login(){
            var regExp=new RegExp(/^1[3-9]\d{9}$/) ;
            if(!regExp.test(this.uname)){
@@ -55,10 +60,21 @@ export default {
                return false;
            }else if(this.upwd.length<6||this.upwd.length>12){
                this.$toast('密码应为6-12位');
-           }else{
+           }else {
                console.log(this.uname,this.upwd)
                this.axios.post('/login?','uname='+this.uname+'&upwd='+this.upwd).then((res)=>{
-                   console.log(res);
+                //    console.log(res);res.data.result
+                if(res.data.code==1){
+                    // console.log(res.data.result[0])
+                    this.Logined({'id':res.data.result[0].uid,'uname':res.data.result[0].uname})
+                    sessionStorage.setItem('id',res.data.result[0].uid);
+                    sessionStorage.setItem('uname',res.data.result[0].uname);
+                    sessionStorage.setItem('isLogin',true);
+                    this.$router.push('/me');
+                }else{
+                    this.$toast('用户名或密码错误');
+                }
+                    
                })
            }
         }
