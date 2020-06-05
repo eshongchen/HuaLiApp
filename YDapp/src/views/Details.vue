@@ -1,8 +1,8 @@
 <template>
   <div>
     <mt-header title="商品详情" fixed >
-      <router-link to="/" slot="left">
-        <mt-button icon="back"></mt-button>
+      <router-link to="" slot="left">
+        <mt-button @click="backVue" icon="back"></mt-button>
       </router-link>
     </mt-header>
     <div class="de-pic">
@@ -35,7 +35,7 @@
     <div class="boot">
       
       <div class="cart">
-        <span>加入购物车</span>
+        <span @click="addCart($store.state.id,data.Fid)">加入购物车</span>
       </div>
       
     </div>
@@ -90,6 +90,25 @@ export default {
       data:[]
     }
   },
+  methods:{
+    backVue(){
+      // $route.
+      history.back()
+    },
+    addCart(uid,fid){
+        //   console.log(uid,fid)
+          if(uid==-1){
+              this.$toast('你未登录，无法添加');
+              return false;
+          }
+          this.axios.get("/add?uid="+uid+'&fid='+fid).then((res)=>{
+              if(res.data.code==1){
+                  this.$toast('添加成功');
+              }
+          })
+      }
+  },
+  
   mounted() {
     var id = this.$route.params.id;
         // console.log( this.$route.params.id);
@@ -100,6 +119,7 @@ export default {
       console.log(this.data);
     });
   },
+  
 }
 </script>
 <style  scoped>

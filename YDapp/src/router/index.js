@@ -40,7 +40,15 @@ const routes = [
     path: '/details/:id',
     component: Details
   },
+  {
+    path:'/search/:key',
+    component:()=> import(
+      /*webpackChunkName:"search"*/
+      '../views/Search.vue'
+    )
   
+  }
+   
 ]
 
 const router = new VueRouter({

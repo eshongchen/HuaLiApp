@@ -3,8 +3,8 @@
         <!-- 搜索栏 -->
         <div class="search">
             <!-- <span><img src="../assets/index/delete.png" alt=""></span> -->
-            <input type="text"  placeholder="搜索" >
-            <button>搜索</button>
+            <input type="text"  placeholder="搜索" v-model="keyword" >
+            <button @click="search()">搜索</button>
         </div>
         <!-- 分类栏 -->
         <div class="kiddL">
@@ -175,9 +175,17 @@ export default {
        return{
             selected:'1',
              active:'kind',
+             keyword:''
        }
-   }
-   
+   },
+   methods: {
+       search(){
+           this.keyword=this.keyword.trim()
+           if(this.keyword!=''){
+               this.$router.push(`/search/${this.keyword}`)
+           }
+       }
+   },
 }
 </script>
 <style  scoped>
@@ -286,7 +294,6 @@ export default {
     text-align: left;
     font-size: 15px;
     font-weight: bolder;
-
 }
 </style>
 

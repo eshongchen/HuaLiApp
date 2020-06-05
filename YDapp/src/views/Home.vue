@@ -54,13 +54,13 @@
         <div>
             <div class="product-title"><span>送恋人/爱情鲜花</span></div>
             <div class="product-body">
-                <div class="product-cart" @click="Tdetails(item.Fid)" v-for="(item,index) of rose" :key="index">
-                    <div class="product-img" >
+                <div class="product-cart" v-for="(item,index) of rose" :key="index">
+                    <div class="product-img"  @click="Tdetails(item.Fid)" >
                         <img :src="item.Imag" alt="">
                     </div>
                     <div class="product-decs">
-                        <p>{{item.Cpmc}}</p>
-                        <p>{{item.Instro}}</p>
+                        <p  @click="Tdetails(item.Fid)" >{{item.Cpmc}}</p>
+                        <p  @click="Tdetails(item.Fid)" >{{item.Instro}}</p>
                         
                         <div class="dd">
                             <p >年销售冠军</p>
@@ -73,7 +73,7 @@
                                 <p>已销售{{item.Sales}}件</p>
                             </div>
                             <div >
-                                <img class="cart-icon" src="../assets/index/cart.png" alt="">
+                                <img @click="addCart($store.state.id,item.Fid)" class="cart-icon" src="../assets/index/cart.png" alt="">
                             </div>
                         </div>
                         
@@ -89,13 +89,13 @@
         <div>
             <div class="product-title"><span>送长辈鲜花</span></div>
             <div class="product-body">
-                <div class="product-cart"  @click="Tdetails(item.Fid)"  v-for="(item,index) of elder" :key="index">
-                    <div class="product-img">
+                <div class="product-cart"    v-for="(item,index) of elder" :key="index">
+                    <div class="product-img" @click="Tdetails(item.Fid)">
                         <img :src="item.Imag" alt="">
                     </div>
                     <div class="product-decs">
-                        <p>{{item.Cpmc}}</p>
-                        <p>{{item.Instro}}</p>
+                        <p @click="Tdetails(item.Fid)">{{item.Cpmc}}</p>
+                        <p @click="Tdetails(item.Fid)">{{item.Instro}}</p>
                         
                         <div class="dd">
                             <p >年销售冠军</p>
@@ -108,7 +108,7 @@
                                 <p>已销售{{item.Sales}}件</p>
                             </div>
                             <div >
-                                <img class="cart-icon" src="../assets/index/cart.png" alt="">
+                                <img @click="addCart($store.state.id,item.Fid)" class="cart-icon" src="../assets/index/cart.png" alt="">
                             </div>
                         </div>
                         
@@ -124,13 +124,13 @@
         <div>
             <div class="product-title"><span>永生花推荐</span></div>
             <div class="product-body">
-               <div class="product-cart"  @click="Tdetails(item.Fid)" v-for="(item,index) of preserved" :key="index">
-                    <div class="product-img">
+               <div class="product-cart"  v-for="(item,index) of preserved" :key="index">
+                    <div class="product-img"  @click="Tdetails(item.Fid)" >
                         <img :src="item.Imag" alt="">
                     </div>
                     <div class="product-decs">
-                        <p>{{item.Cpmc}}</p>
-                        <p>{{item.Instro}}</p>
+                        <p  @click="Tdetails(item.Fid)" >{{item.Cpmc}}</p>
+                        <p  @click="Tdetails(item.Fid)" >{{item.Instro}}</p>
                         
                         <div class="dd">
                             <p >年销售冠军</p>
@@ -143,7 +143,7 @@
                                 <p>已销售{{item.Sales}}件</p>
                             </div>
                             <div >
-                                <img class="cart-icon" src="../assets/index/cart.png" alt="">
+                                <img @click="addCart($store.state.id,item.Fid)" class="cart-icon" src="../assets/index/cart.png" alt="">
                             </div>
                         </div>
                         
@@ -202,7 +202,7 @@ export default {
           } 
         //   console.log(data);
           this.data520= data;
-          console.log(this.data520);
+        //   console.log(this.data520);
         });
          //   请求首页玫瑰
         this.axios.get('/index?kind=玫瑰').then(res=>{
@@ -240,7 +240,19 @@ export default {
     },
   methods: {
       Tdetails(Fid){
-        this.$router.push('./details/'+Fid)
+          this.$router.push('./details/'+Fid)
+      },
+      addCart(uid,fid){
+        //   console.log(uid,fid)
+          if(uid==-1){
+              this.$toast('你未登录，无法添加');
+              return false;
+          }
+          this.axios.get("/add?uid="+uid+'&fid='+fid).then((res)=>{
+              if(res.data.code==1){
+                  this.$toast('添加成功');
+              }
+          })
       }
     // handleChange(index) {}
   }
@@ -262,19 +274,19 @@ export default {
 }
 .swipe {
   width: 100%;
-  height: 160px;
+  height: 140px;
   margin-top: 40px;
   /* background-color: red; */
 }
 .swipe-img1 {
-  /* width: 100%; */
+  width: 100%;
   height: 100%;
-  margin-left: -50%;
+  /* margin-left: -50%; */
 }
 .swipe-img2 {
-  /* width: 100%; */
+  width: 100%;
   height: 100%;
-  margin-left: -25%;
+  /* margin-left: -25%; */
 }
 .bp {
   

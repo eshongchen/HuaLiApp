@@ -97,7 +97,7 @@ server.get('/search/:keyword', (req, res) => {
 server.get('/add', (req, res) => {
     let uid = req.query.uid;
     let Fid = req.query.fid;
-
+    
     pool.query('select * from cart where userid=? and fid=?', [uid, Fid], (err, result) => {
         if (err) throw err;
         if (result.length == 0) {
@@ -149,6 +149,7 @@ server.post('/cartUpdate', (req, res) => {
     var sql = 'UPDATE cart SET count=? WHERE userid=? and fid=?';
     pool.query(sql, [count, userid, fid], (err, result) => {
         if (err) throw err;
+        res.send(result);
     });
 
 });

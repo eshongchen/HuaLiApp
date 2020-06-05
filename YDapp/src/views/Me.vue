@@ -46,14 +46,14 @@
                         <p>关于花礼</p>
                     </div>
                     <div class="item" >
+                        <!-- <router-link to='/search'> -->
                         <img src="../assets/index/icon7-setting.png" alt="">
-                        <p>设置</p>
+                        <p >设置</p>
+                        <!-- </router-link> -->
                     </div>
                 </div>
             </div>
         </div>
-        
-
         <tabbar :active="active"></tabbar>
     </div>
 </template>
@@ -68,6 +68,7 @@ export default {
        return{
             active:'me',
             // logined:$store.state.isLogin
+            //  
        }
    },
    mounted(){
@@ -81,7 +82,8 @@ export default {
         loginout(){
             // console.log('撒都')
             this.Loginout();
-        }
+        },
+       
     }
    
 }

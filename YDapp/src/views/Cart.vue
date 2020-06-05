@@ -3,21 +3,21 @@
         <mt-header fixed title="购物车"></mt-header>
         <div class="cart-product">
             <div class="cart-list">
-                <div class="cart-item">
-                    <div class="cart-img">
-                        <img src="../assets/index/test1.jpg" alt="">
+                <div class="cart-item" v-for="(item,index) of data" :key="index">
+                    <div class="cart-img" @click="Tdetails(item.fid)">
+                        <img :src="item.Imag" alt="">
                     </div>
                     <div class="cart-desc">
-                        <p class="cart-desc-title">[鲜花]一心一意</p>
+                        <p @click="Tdetails(item.fid)" class="cart-desc-title">{{item.Cpmc}}</p>
                         <div class="cart-desc-num">
                             <span>数量</span>
-                            <a href="java:script;">-</a>
-                            <span>12</span>
-                            <a href="java:script;">+</a>
+                            <a @click="minusCartUpdate($store.state.id,item.count,item.fid)" href="java:script;">-</a>
+                            <span>{{item.count}}</span>
+                            <a @click="AddCartUpdate($store.state.id,item.count,item.fid)" href="java:script;">+</a>
                         </div>
-                        <p class="price">￥243</p>
+                        <p class="price">￥{{item.Price}}</p>
                         <a href="java:script;" class="del">
-                            <img src="../assets/index/delete.png" alt="">
+                            <img @click="cartDel($store.state.id,item.fid)" src="../assets/index/delete.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -27,14 +27,14 @@
         </div>
         <div class="cart-sum">
             <span>合计:</span>
-            <span class="sum">￥123</span>
+            <span class="sum">￥{{this.total}}</span>
             <button>结算</button>
         </div>
         <tabbar :active="active"></tabbar>
     </div>
 </template>
 <script>
-import tabbar from '../components/tabbar'
+import tabbar from '../components/tabbar' 
 export default {
     components:{
         tabbar
@@ -42,7 +42,67 @@ export default {
    data(){
        return{
              active:'cart',
+             data:[],
+             total:0,
+             cartCount:0,
+            //  timeBool:true,
+            //  timer:[]
        }
+   },
+   methods:{
+       cartDel(uid,fid){
+           console.log(uid,fid)
+           
+           this.axios.post('/cartDel?','uid='+uid+'&fid='+fid).then(res=>{
+               
+               if(res.data.affectedRows>0){
+                   this.cartList();
+               }
+           })
+       },
+       cartList(){
+           this.axios.get('/cartlist?uid='+this.$store.state.id).then((res)=>{
+           console.log(res.data.result);
+           this.total=0;
+           res.data.result.map((item,index)=>{
+               item.Imag=require('../assets/images/img/'+item.Imag);
+               this.total+=item.Price*item.count;
+           })
+           this.data=res.data.result;
+          })
+       },
+       cartUpdate(uid,count,fid){
+            this.axios.post('/cartUpdate?','uid='+uid+'&count='+count+'&fid='+fid).then(res=>{
+                        if(res.data.affectedRows>0){
+                            this.cartList();
+                        }
+                    })
+       },
+       AddCartUpdate(uid,count,fid){
+           
+            count++;
+            this.cartUpdate(uid,count,fid); 
+            this.timeBool==true
+            // clearTimeout(this.timer);
+       },
+       minusCartUpdate(uid,count,fid){
+            if(count==1){
+                this.cartDel(uid,fid);
+            }else{
+                count--;
+                this.cartUpdate(uid,count,fid);  
+            }   
+            this.timeBool==true;
+            // clearTimeout(this.timer);
+       },
+       Tdetails(Fid){
+        this.$router.push('./details/'+Fid)
+      },
+       
+
+   },
+   mounted(){
+       this.cartList();
    }
    
 }
